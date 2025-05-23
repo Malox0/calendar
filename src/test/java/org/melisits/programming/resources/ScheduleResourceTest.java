@@ -27,8 +27,8 @@ public class ScheduleResourceTest {
         String scheduleJson = """
         {
           "id": 100,
-          "from": "2025-05-23",
-          "until": "2025-05-24",
+          "scFrom": "2025-05-23",
+          "scUntil": "2025-05-24",
           "fromTime": "09:00:00",
           "untilTime": "17:00:00",
           "allDay": false,
@@ -68,6 +68,20 @@ public class ScheduleResourceTest {
                 .then()
                 .statusCode(200)
                 .body("title", equalTo("Updated Title"));
+    }
+
+    @Test
+    public void testGetSchedulesByDateRange() {
+        RestAssured.given()
+                .queryParam("from", "2025-05-10")
+                .queryParam("to", "2025-05-15")
+                .when()
+                .get("/schedules/range")
+                .then()
+                .statusCode(200)
+                .body("size()", greaterThan(0))
+                .body("scFrom", everyItem(greaterThanOrEqualTo("2025-05-10")))
+                .body("scUntil", everyItem(lessThanOrEqualTo("2025-05-15")));
     }
 
     // Test DELETE /schedules/{id}

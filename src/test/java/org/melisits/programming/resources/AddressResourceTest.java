@@ -74,7 +74,7 @@ public class AddressResourceTest {
                 .get(BASE_PATH + "/search")
                 .then()
                 .statusCode(400)
-                .body(equalTo("Query must not be blank."));
+                .body(equalTo("Query parameter 'query' must not be blank."));
     }
 
 

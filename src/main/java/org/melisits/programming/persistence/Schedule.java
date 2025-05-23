@@ -18,15 +18,15 @@ public class Schedule {
     private Long id;
 
     @Column(name = "sc_from", nullable = false)
-    private LocalDate from;
+    private LocalDate scFrom;
 
     @Column(name = "sc_until", nullable = false)
-    private LocalDate until;
+    private LocalDate scUntil;
 
-    @Column(name = "sc_from_time", nullable = false)
+    @Column(name = "sc_from_time", nullable = true)
     private LocalTime fromTime;
 
-    @Column(name = "sc_until_time", nullable = false)
+    @Column(name = "sc_until_time", nullable = true)
     private LocalTime untilTime;
 
     @Column(name = "sc_allday", nullable = false)
@@ -39,10 +39,10 @@ public class Schedule {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sc_a_id", referencedColumnName = "a_id", nullable = false)
+    @JoinColumn(name = "sc_a_id", referencedColumnName = "a_id", nullable = true)
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sc_m_id", referencedColumnName = "m_id", nullable = false)
+    @JoinColumn(name = "sc_m_id", referencedColumnName = "m_id", nullable = true)
     private Mark mark;
 }

@@ -897,6 +897,21 @@ INSERT INTO public.schedules VALUES (1002, '2025-05-11', '2025-05-11', '09:00:00
 INSERT INTO public.schedules VALUES (1003, '2025-05-12', '2025-05-12', '14:00:00', '15:30:00', false, 'Client Demo', 'Product demo with client', 'AMBROSI1', 3);
 INSERT INTO public.schedules VALUES (1004, '2025-05-13', '2025-05-13', '13:00:00', '14:00:00', false, 'Internal Review', 'Review session with devs', 'BREZINA1', 4);
 INSERT INTO public.schedules VALUES (1005, '2025-05-14', '2025-05-14', '15:00:00', '16:00:00', false, '1:1 Meeting', 'Performance feedback', 'BREZINA1', 5);
+INSERT INTO public.schedules VALUES (1006, '2025-05-15', '2025-05-15', '13:00:00', '14:00:00', false, 'Budget Meeting', 'Discuss budget allocations', 'BIELZ1', 1);
+INSERT INTO public.schedules VALUES (1007, '2025-05-16', '2025-05-16', '15:00:00', '16:00:00', false, 'Engineering Sync', 'Align with engineering team', 'BIGL1', 1);
+INSERT INTO public.schedules VALUES (1008, '2025-05-17', '2025-05-17', '08:30:00', '09:30:00', false, 'Marketing Plan', 'Plan next month\'s marketing campaigns', 'BIKE-CITY GMBH1', 1);
+INSERT INTO public.schedules VALUES (1009, '2025-05-18', '2025-05-18', '10:00:00', '11:30:00', false, 'HR Workshop', 'HR policies and procedures', 'BILETTI1', 1);
+INSERT INTO public.schedules VALUES (1010, '2025-05-19', '2025-05-19', '14:30:00', '16:00:00', false, 'One-on-One', 'Monthly performance check-in', 'BISCHOF1', 1);
+INSERT INTO public.schedules VALUES (1011, '2025-05-20', '2025-05-20', '09:00:00', '12:00:00', false, 'UX Testing', 'User testing of new features', 'BLAHAK1', 1);
+INSERT INTO public.schedules VALUES (1012, '2025-05-21', '2025-05-21', '13:30:00', '15:30:00', false, 'System Upgrade', 'Update servers to latest version', 'BLAHSL1', 1);
+INSERT INTO public.schedules VALUES (1013, '2025-05-22', '2025-05-22', '10:00:00', '11:00:00', false, 'Sales Review', 'Review this quarter\'s sales', 'BLAUENSTEINER1', 1);
+INSERT INTO public.schedules VALUES (1014, '2025-05-23', '2025-05-23', '15:00:00', '16:00:00', false, 'Legal Check-in', 'Meeting with legal team', 'BLECHA1', 1);
+INSERT INTO public.schedules VALUES (1015, '2025-05-24', '2025-05-24', '11:00:00', '13:00:00', false, 'Innovation Sprint', 'Brainstorming session', 'BLIM1', 1);
+INSERT INTO public.schedules VALUES (1016, '2025-05-25', '2025-05-25', '09:00:00', '10:00:00', false, 'Standup Meeting', 'Daily standup', 'BOBEK1', 1);
+INSERT INTO public.schedules VALUES (1017, '2025-05-26', '2025-05-26', '14:00:00', '15:00:00', false, 'Product Demo', 'Demo for internal stakeholders', 'BOCA1', 1);
+INSERT INTO public.schedules VALUES (1018, '2025-05-27', '2025-05-27', '16:00:00', '17:00:00', false, 'Strategy Session', 'Discuss Q3 strategy', 'BOECK1', 1);
+INSERT INTO public.schedules VALUES (1019, '2025-05-28', '2025-05-28', '13:00:00', '14:30:00', false, 'Quarterly Review', 'Review quarterly goals', 'BOETTGER1', 1);
+INSERT INTO public.schedules VALUES (1020, '2025-05-29', '2025-05-29', '08:00:00', '09:00:00', false, 'Coffee & Code', 'Informal dev session', 'BOGATAJ1', 1);
 
 
 --

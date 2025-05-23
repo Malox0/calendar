@@ -2,8 +2,11 @@ package org.melisits.programming.resource;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.melisits.programming.dto.AddressDTO;
 import org.melisits.programming.persistence.Address;
 import org.melisits.programming.service.AddressService;
+
+import java.util.List;
 
 @Path("/addresses")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,34 +35,21 @@ public class AddressResource {
 
     @GET
     @Path("/search")
-    public Response search(@QueryParam("query") String query) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response search(
+            @QueryParam("query") String query,
+            @QueryParam("limit") @DefaultValue("20") int limit,
+            @QueryParam("offset") @DefaultValue("0") int offset) {
         if (query == null || query.isBlank()) {
-            return Response.status(Response.Status.BAD_REQUEST).entity("Query must not be blank.").build();
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("Query parameter 'query' must not be blank.")
+                    .build();
         }
-        return Response.ok(addressService.search(query)).build();
+
+        query = query.trim();
+        List<AddressDTO> results = addressService.search(query, limit, offset);
+        return Response.ok(results).build();
     }
 
-    @POST
-    public Response create(Address address) {
-        addressService.create(address);
-        return Response.status(Response.Status.CREATED).build();
-    }
 
-    @PUT
-    @Path("/{id}")
-    public Response update(@PathParam("id") String id, Address address) {
-        address.setId(id);
-        return Response.ok(addressService.update(address)).build();
-    }
-
-    @DELETE
-    @Path("/{id}")
-    public Response delete(@PathParam("id") String id) {
-        boolean deleted = addressService.delete(id);
-        if (deleted) {
-            return Response.noContent().build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-    }
 }

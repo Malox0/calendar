@@ -23,15 +23,18 @@ public class AddressRepository {
         return Optional.ofNullable(em.find(Address.class, id));
     }
 
-    public List<Address> search(String query) {
-        String q = "%" + query.toLowerCase() + "%";
-        return em.createQuery("""
-            SELECT a FROM Address a 
-            WHERE LOWER(a.firstName) LIKE :query 
-               OR LOWER(a.lastName) LIKE :query 
-               OR LOWER(a.street) LIKE :query
-        """, Address.class)
-                .setParameter("query", q)
+    public List<Address> search(String query, int limit, int offset) {
+        String jpql = """
+            SELECT a FROM Address a
+            WHERE LOWER(a.firstName) LIKE LOWER(CONCAT('%', :query, '%'))
+               OR LOWER(a.lastName) LIKE LOWER(CONCAT('%', :query, '%'))
+               OR LOWER(a.street) LIKE LOWER(CONCAT('%', :query, '%'))
+        """;
+
+        return em.createQuery(jpql, Address.class)
+                .setParameter("query", query)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
                 .getResultList();
     }
 
